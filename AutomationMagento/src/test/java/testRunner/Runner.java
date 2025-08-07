@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @RunWith(Cucumber.class)
 
-@CucumberOptions(features= {"src\\test\\resources\\feature"},
+@CucumberOptions(features= {"src\\test\\resources\\Feature"},
 glue= {"src\\test\\java\\stepDefinitions"}, plugin = {"pretty", "html:target/reports.html"}, monochrome = true)
 
 public class Runner {
