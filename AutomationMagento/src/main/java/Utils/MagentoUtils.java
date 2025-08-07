@@ -73,5 +73,40 @@ public class MagentoUtils {
           throw new AssertionError("Registration failed or success message not found.");
       }}
 	 
+	 public void clickSignin() throws InterruptedException {
+		 
+			driver.findElement(By.xpath("//a[contains(text(),'Sign In')]")).click();
+			Thread.sleep(5000);
+		}
+	 
+		public void loginCredentials(String email, String password) {
+			driver.findElement(By.id("email")).sendKeys(email);
+			driver.findElement(By.id("pass")).sendKeys(password);
+		}
+		
+		public void clickLogin() {
+			driver.findElement(By.id("send2")).click();
+		}
+		
+		public void successSiginPage(String string) {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		      WebElement successMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
+		              By.xpath("//span[text()='Welcome, firstname lastname!']")));
+
+		      if (!successMessage.getText().contains(string)) {
+		          throw new AssertionError("Signin failed or success message not found.");
+		      }
+		}
+		
+		public void errorMessage(String string) {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		      WebElement successMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
+		              By.xpath("//div[text()='The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.']")));
+
+		      if (!successMessage.getText().contains(string)) {
+		          throw new AssertionError(" their is no incorect credentials");
+		      }
+		}
+		
 
 }
