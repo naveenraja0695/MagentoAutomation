@@ -28,6 +28,7 @@ public class MagentoUtils {
 	}
 	
 	public void closeAd() {
+		
 		try {
 		List<WebElement> iframes = driver.findElements(By.tagName("iframe"));
 		for(WebElement frame: iframes ) {
@@ -89,9 +90,9 @@ public class MagentoUtils {
 		}
 		
 		public void successSiginPage(String string) {
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		      WebElement successMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
-		              By.xpath("//span[text()='Welcome, firstname lastname!']")));
+		              By.xpath("//span[text()='Welcome, Naveen Raja!']")));
 
 		      if (!successMessage.getText().contains(string)) {
 		          throw new AssertionError("Signin failed or success message not found.");

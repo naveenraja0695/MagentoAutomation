@@ -5,7 +5,7 @@ Feature: Magneto login funtion
     When user click on the signin button
 
   Scenario: Successful login with valid credentials
-    And user enter valid login credentials "naveenraja84247@gmail.com" and "Password@123"
+    And user enter valid login credentials "naveenraja92247@gmail.com" and "Password@123"
     And user sigin to the website
     Then user should see "Welcome, Naveen Raja!" on page
 
